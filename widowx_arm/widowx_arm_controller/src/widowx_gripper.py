@@ -65,13 +65,13 @@ class WidowxGripper:
 			
 			self.desired_freq = rospy.get_param('~desired_freq', default = 10.0)
 			
-		except rospy.ROSException, e:
+		except (rospy.ROSException, e):
 			rospy.logerr('%s: error getting params %s'%(rospy.get_name(), e))
 			exit()
 
 	def jointStateCb(self, msg):
 		
-		 if 'gripper_revolute_joint' in msg.name:
+		if 'gripper_revolute_joint' in msg.name:
 			index = msg.name.index('gripper_revolute_joint')
 			position = msg.position[index]
 			velocity = msg.velocity[index]
