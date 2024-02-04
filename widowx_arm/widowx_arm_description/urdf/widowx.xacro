@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<robot name="widowx_arm" xmlns:xacro="http://wiki.ros.org/xacro">
+  <xacro:include filename="$(find widowx_arm_description)/urdf/widowx.urdf.xacro"/>
+  <xacro:widowx_arm prefix=""/>
+</robot>

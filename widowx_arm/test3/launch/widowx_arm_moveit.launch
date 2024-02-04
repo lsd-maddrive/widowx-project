@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<launch>
+
+  <arg name="pipeline" default="ompl" />
+  <arg name="sim" default="true" />
+  <arg name="debug" default="false" />
+  <arg name="load_robot_description" default="true"/>
+  <arg name="moveit_controller_manager" default="fake" />
+  <arg name="fake_execution_type" default="interpolate" />
+  <arg name="use_gui" default="false" />
+  <arg name="use_rviz" default="true" />
+  
+  <node pkg="tf2_ros" type="static_transform_publisher" name="virtual_joint_broadcaster_0" args="0 0 0 0 0 0 world base_footprint" />
+  <node pkg="tf2_ros" type="static_transform_publisher" name="virtual_joint_broadcaster_1" args="0 0 0 0 0 0 world arm_base_link" />
+
+  <include file="$(find test3)/launch/planning_context.launch">
+    <arg name="load_robot_description" value="true"/>
+  </include>
+
+  <include unless="$(arg sim)" file="$(find widowx_arm_bringup)/launch/arm.launch"/>
+
+  <node if="$(arg sim)" name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+    <param name="/use_gui" value="false"/> 
+    <rosparam param="/source_list">[/move_group/fake_controller_joint_states]</rosparam>
+  </node>
+
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="true" output="screen" />
+  
+  <include file="$(dirname)/move_group.launch">
+    <arg name="allow_trajectory_execution" value="true"/>
+    <arg name="moveit_controller_manager" value="$(arg moveit_controller_manager)" />
+    <arg name="fake_execution_type" value="$(arg fake_execution_type)"/>
+    <arg name="info" value="true"/>
+    <arg name="debug" value="$(arg debug)"/>
+    <arg name="pipeline" value="$(arg pipeline)"/>
+    <arg name="load_robot_description" value="$(arg load_robot_description)"/>
+  </include>
+
+  <include file="$(dirname)/moveit_rviz.launch" if="$(arg use_rviz)">
+    <arg name="rviz_config" value="$(dirname)/moveit.rviz"/>
+    <arg name="debug" value="$(arg debug)"/>
+  </include>
+
+</launch>
