@@ -3,7 +3,7 @@
 Стек софта для работы с манипулятором [WIDOWX-MKII](https://www.trossenrobotics.com/WidowxRobotArmMK2) (Trossen Robotics)
 
 <p align="center">
-    <img src="https://www.trossenrobotics.com/images/PImages/widowx-a.jpg" width=300>
+    <img src="https://sitimedia-edu.ru/files/catalog/product/404x404/robot-manipulyator-trossen-robotics-widowx-mkii-robot-arm.png" width=300>
 </p>
 
 
@@ -17,28 +17,36 @@
 
 ## начало работы
 
-* установим бинарные пакеты командой
+### настройка окружения нижнего уровня
 
-    ```bash
-    sh src/widowx-project/scripts/install_binary_packages.sh
-    ```
+[инструкция по началу работы с прошивкой платы Arbotix](https://github.com/AalborgUniversity-ControlLabs/start-here/blob/master/crust-crawler-arms/getting-started-with-arbotix-m.md)
 
-* в папке `src` выполним команду, которая установит все зависимости
+### настройка окружения верхнего уровня
 
-    ```bash
-    rosdep install -y -r \
-        --from-paths src/ \
-        --ignore-src \
-        --rosdistro noetic
-    ```
+* выполним команды из папки рабочего простанства (workspace)
 
-* соберем пакеты командой
+    * установим бинарные пакеты командой
 
-    ```bash
-    sh src/widowx-project/scripts/build.sh
-    ```
+        ```bash
+        sh src/widowx-project/scripts/install_binary_packages.sh
+        ```
 
-* добавим устойство `ttyUSB_WIDOWX`
+    * в папке `src` выполним команду, которая установит все зависимости
+
+        ```bash
+        rosdep install -y -r \
+            --from-paths src/ \
+            --ignore-src \
+            --rosdistro noetic
+        ```
+
+    * соберем пакеты командой
+
+        ```bash
+        sh src/widowx-project/scripts/build.sh
+        ```
+
+* добавим символьную ссылку на устройство `ttyUSB_WIDOWX`
 
     ```bash
     sudo sh src/widowx-project/scripts/install_hardware_moduls.sh
