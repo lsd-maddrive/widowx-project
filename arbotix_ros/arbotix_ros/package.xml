@@ -1,5 +1,5 @@
 <package>
-  <name>arbotix</name>
+  <name>arbotix_ros</name>
   <version>0.11.0</version>
   <description>ArbotiX Drivers</description>
   <author>Michael Ferguson</author>

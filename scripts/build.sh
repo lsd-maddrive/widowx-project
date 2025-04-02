@@ -1,7 +1,7 @@
 #!/bin/bash
 
 catkin build \
-    arbotix \
+    arbotix_ros \
     widowx_arm \
     widowx_arm_bringup \
     widowx_arm_controller \
