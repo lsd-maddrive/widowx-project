@@ -271,7 +271,7 @@
          <parent link="gripper_rail_link" />
          <child link="gripper_1_link" />
          <axis xyz="0 -1 0" />
-         <limit lower="0.002" upper="0.031" effort="0" velocity="0.5" />
+         <limit lower="0.002" upper="0.02" effort="0" velocity="0.5" />
       </joint>
       <link name="gripper_1_link">
          <visual>
@@ -309,7 +309,7 @@
          <child link="gripper_2_link" />
          <mimic joint="joint_6" />
          <axis xyz="0 1 0" />
-         <limit lower="0.002" upper="0.031" effort="0" velocity="0.5" />
+         <limit lower="0.002" upper="0.02" effort="0" velocity="0.5" />
       </joint>
       <link name="gripper_2_link">
          <visual>
