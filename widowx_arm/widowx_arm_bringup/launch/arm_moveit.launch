@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <launch>
-
+  <param name="robot_description" command="$(find xacro)/xacro '$(find widowx_arm_description)/urdf/widowx_arm.urdf'"/>
   <!-- By default, run in simulation mode -->
   <arg name="sim" default="true" />
 

@@ -101,7 +101,7 @@ class ParallelGripperModel:
     def __init__(self):
         self.center = rospy.get_param('~center', 0.0)
         self.scale = rospy.get_param('~scale', 1.0)
-        self.joint = rospy.get_param('~joint', 'gripper_joint')
+        self.joint = rospy.get_param('~joint', 'joint_6')
 
         # publishers
         self.pub = rospy.Publisher(self.joint+'/command', Float64, queue_size=5)

@@ -3,7 +3,7 @@
   <node name="arbotix" pkg="arbotix_python" type="arbotix_driver" output="screen">
     <rosparam file="$(find widowx_arm_bringup)/config/widowx_arm.yaml" command="load"/>
   </node>
-  <node name="gripper_controller" pkg="widowx_arm_controller" type="widowx_gripper.py" output="screen">
+  <!-- <node name="gripper_controller" pkg="widowx_arm_controller" type="widowx_gripper.py" output="screen">
     <rosparam file="$(find widowx_arm_bringup)/config/widowx_arm_gripper.yaml" command="load" />
-  </node>
+  </node> -->
 </launch>
