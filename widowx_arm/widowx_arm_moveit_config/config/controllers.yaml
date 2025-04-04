@@ -13,6 +13,6 @@ controller_list:
     action_ns: gripper_action
     type: GripperCommand
     default: true
-    command_joint: gripper_joint
+    command_joint: joint_6
     joints:
-      - gripper_joint
+      - joint_6
